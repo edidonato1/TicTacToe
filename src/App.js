@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import GameBoard from './GameBoard'
 
 function App() {
+  const [playerTurn, setPlayerTurn] = useState('Player 1')
+  const [winner, setWinner] = useState(null)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Tic Tac Toe</h1>
+      <h2>Winner: {winner}</h2>
+      <h2>{playerTurn}</h2>
+      <GameBoard
+        winner={winner}
+        setWinner={setWinner}
+        playerTurn={playerTurn}
+        setPlayerTurn={setPlayerTurn}
+      />
     </div>
   );
 }
