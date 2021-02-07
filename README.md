@@ -1,6 +1,6 @@
 ## Tic Tac Toe
 
-This was a weekend side project from when I was in my bootcamp in late 2020.  Rather than using an array of possible winning scenarios, the game logic uses a matrix of stateful "squares", and uses ES6 Array destructuring to search for winning scenarios:
+This was a weekend side project from when I was in my bootcamp in late 2020.  Using an array of possible winning scenarios, the game logic uses a matrix of stateful "squares", and uses ES6 Array destructuring to search for winning scenarios:
 
 ```
   const [squareA1, setSquareA1] = useState(null)
