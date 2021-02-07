@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+## Tic Tac Toe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This was a weekend side project from when I was in my bootcamp in late 2020.  Rather than using an array of possible winning scenarios, the game logic uses a matrix of stateful "squares", and uses ES6 Array destructuring to search for winning scenarios:
 
-## Available Scripts
+```
+  const [squareA1, setSquareA1] = useState(null)
+  const [squareA2, setSquareA2] = useState(null)
+  const [squareA3, setSquareA3] = useState(null)
+  const [squareB1, setSquareB1] = useState(null)
+  const [squareB2, setSquareB2] = useState(null)
+  const [squareB3, setSquareB3] = useState(null)
+  const [squareC1, setSquareC1] = useState(null)
+  const [squareC2, setSquareC2] = useState(null)
+  const [squareC3, setSquareC3] = useState(null)
 
-In the project directory, you can run:
+  const tictac = [
+    [squareA1, squareA2, squareA3],
+    [squareB1, squareB2, squareB3],
+    [squareC1, squareC2, squareC3],
+    [squareA1, squareB1, squareC1],
+    [squareA2, squareB2, squareC2],
+    [squareA3, squareB3, squareC3],
+    [squareA1, squareB2, squareC3],
+    [squareC1, squareB2, squareA3]
+  ]
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  const checkForWinner = () => {
+    tictac.map(s => {
+      const [a, b, c] = s
+      if (a && a === b && a === c) {
+        a === 'X' ? setWinner('Player 1') : setWinner('Player 2')
+        return a
+      }
+    })  
+  }
+  
+  ```
